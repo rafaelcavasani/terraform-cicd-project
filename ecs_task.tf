@@ -1,5 +1,6 @@
 resource "aws_ecs_task_definition" "cicd_project_service_task" {
   family = "service"
+  requires_compatibilities = ["FARGATE"]
   container_definitions = jsonencode([
     {
       name      = "cicd-service"
