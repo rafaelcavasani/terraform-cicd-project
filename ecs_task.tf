@@ -1,11 +1,13 @@
 resource "aws_ecs_task_definition" "cicd_project_service_task" {
-  family = "service"
+  family = "cicd-service-task"
+  network_mode = "awsvpc"
   requires_compatibilities = ["FARGATE"]
+
   container_definitions = jsonencode([
     {
-      name      = "cicd-service"
+      name      = "cicd-service-task"
       image     = "625866090828.dkr.ecr.us-east-1.amazonaws.com/terraform-cicd-project-app:latest"
-      cpu       = 1
+      cpu       = 128
       memory    = 512
       essential = true
       portMappings = [
