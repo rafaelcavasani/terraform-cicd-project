@@ -7,7 +7,6 @@ resource "aws_ecs_cluster" "cicd_project_cluster" {
   }
 }
 
-
 resource "aws_ecs_cluster_capacity_providers" "cicd_project_cluster_capacity_provider" {
   cluster_name = aws_ecs_cluster.cicd_project_cluster.name
 
