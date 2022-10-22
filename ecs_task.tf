@@ -3,7 +3,7 @@ resource "aws_ecs_task_definition" "cicd_project_service_task" {
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   cpu                      = 128
-  memory                   = 512
+  memory                   = 256
   execution_role_arn       = aws_iam_role.ecs_task_role.arn
   container_definitions    = <<TASK_DEFINITION
 [
