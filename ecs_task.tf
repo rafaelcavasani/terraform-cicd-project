@@ -1,31 +1,19 @@
 resource "aws_ecs_task_definition" "cicd_project_service_task" {
-  family = "cicd-service-task"
-  network_mode = "awsvpc"
+   family                   = "cicd-service-task"
   requires_compatibilities = ["FARGATE"]
-
-  container_definitions = jsonencode([
-    {
-      name      = "cicd-service-task"
-      image     = "625866090828.dkr.ecr.us-east-1.amazonaws.com/terraform-cicd-project-app:latest"
-      cpu       = 128
-      memory    = 512
-      essential = true
-      portMappings = [
-        {
-          containerPort = 8080
-          hostPort      = 8080
-        }
-      ]
-    }
-  ])
-
-  volume {
-    name      = "service-storage"
-    host_path = "/ecs/service-storage"
+  network_mode             = "awsvpc"
+  cpu                      = 1024
+  memory                   = 2048
+  container_definitions    = <<TASK_DEFINITION
+[
+  {
+    "name": "cicd-service",
+    "image": "625866090828.dkr.ecr.us-east-1.amazonaws.com/terraform-cicd-project-app:latest",
+    "cpu": 1024,
+    "memory": 2048,
+    "essential": true
   }
+]
+TASK_DEFINITION
 
-  placement_constraints {
-    type       = "memberOf"
-    expression = "attribute:ecs.availability-zone in [us-east-1a, us-east-1b]"
-  }
 }
