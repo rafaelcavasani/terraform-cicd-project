@@ -30,10 +30,10 @@ resource "aws_iam_policy" "ecs_task_role_policy" {
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage",
           "logs:CreateLogStream",
-          "logs:PutLogEvents"
+          "logs:PutLogEvents",
+          "sts:AssumeRole"
         ],
-        "Resource" : "*",
-        "Action": "sts:AssumeRole"
+        "Resource" : "*"
       }
     ]
   })
