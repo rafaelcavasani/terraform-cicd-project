@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "cicd_project_service_task" {
         "essential": true,
         "portMappings": [
           {
-            "containerPort": 8080,
+            "containerPort": 80,
             "hostPort": 80
           }
         ]
