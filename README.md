@@ -13,3 +13,7 @@ Projeto demo para provisionar recursos na AWS usando GITHUB e TERRAFORM.
 
 ## Fluxo
 ![fluxo](https://github.com/rafaelcavasani/terraform-cicd-project/blob/main/terraform-cicd.jpg?raw=true)
+
+## Projeto Aplicação
+https://github.com/rafaelcavasani/terraform-cicd-project-app
+

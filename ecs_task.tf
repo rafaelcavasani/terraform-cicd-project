@@ -13,7 +13,13 @@ resource "aws_ecs_task_definition" "cicd_project_service_task" {
         "image": "625866090828.dkr.ecr.us-east-1.amazonaws.com/terraform-cicd-project-app:latest",
         "cpu": 128,
         "memory": 512,
-        "essential": true
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 8080,
+            "hostPort": 80
+          }
+        ]
       }
     ]
   TASK_DEFINITION
