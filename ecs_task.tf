@@ -10,7 +10,7 @@ resource "aws_ecs_task_definition" "cicd_project_service_task" {
     [
       {
         "name": "cicd-service",
-        "image": "625866090828.dkr.ecr.us-east-1.amazonaws.com/terraform-cicd-project-app:latest",
+        "image": "625866090828.dkr.ecr.us-east-1.amazonaws.com/terraform-cicd-project-app",
         "cpu": 128,
         "memory": 512,
         "essential": true,
