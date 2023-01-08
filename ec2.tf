@@ -3,7 +3,7 @@ resource "aws_instance" "ec2_rancher" {
 
   ami                         = local.ubuntu_ami
   instance_type               = "t3.medium"
-  subnet_id                   = aws_subnet.public_1
+  subnet_id                   = aws_subnet.public_1.id
   vpc_security_group_ids      = [aws_security_group.web.id]
   associate_public_ip_address = true
 
@@ -25,7 +25,7 @@ resource "aws_instance" "ec2_k8s_instance" {
 
   ami                    = local.ubuntu_ami
   instance_type          = "t2.micro"
-  subnet_id              = aws_subnet.public_1
+  subnet_id              = aws_subnet.public_1.id
   vpc_security_group_ids = [aws_security_group.web.id]
 
   user_data = templatefile("./scripts/docker-init.sh", {
