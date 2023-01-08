@@ -7,14 +7,14 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "terraform-cicd-project"
-    key = "terraform.tfstate"
+    bucket  = "terraform-cicd-project"
+    key     = "terraform.tfstate"
     encrypt = true
-    region = "us-east-1"
+    region  = "us-east-1"
   }
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region  = "us-east-1"
   profile = "terraform"
 }
