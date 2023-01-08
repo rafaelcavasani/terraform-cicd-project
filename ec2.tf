@@ -12,7 +12,7 @@ resource "aws_instance" "ec2_rancher" {
   })
   root_block_device {
     volume_size = 40
-    volume_type = standard
+    volume_type = "standard"
   }
 
   tags = {
