@@ -14,6 +14,7 @@ resource "aws_instance" "ec2_rancher" {
     volume_size = 40
     volume_type = "standard"
   }
+  key_name = "key-pair"
   
   tags = {
     Name = "rancher-server"
@@ -35,8 +36,14 @@ resource "aws_instance" "ec2_k8s_instance" {
     volume_size = 30
     volume_type = "standard"
   }
+  key_name = "key-pair"
 
   tags = {
     Name = "rancher-k8s-${count.index}"
   }
+}
+
+resource "aws_key_pair" "deployer" {
+  key_name = "key-pair"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQlv1JDArwteO1DP4x6+nFyLc4d5+aX+CYLSu4wjiznAefKh/pQA0o14tyFnqeC7/J2oi8JDXiCbwFT+IA1O/kfQBAQErT3s0PLzgoCBlwV07IZ5tFszNcXcrO2w+r2vsRA2nnEoZE/gHtIkXI+gK4ZvuyiQOOSOpTNtJvseTGVmhU1bKogBdMLohXJhb0uNegWF1VQGEoscEb7fS2NRAKMbMNaUiOdtdinzW39QtaHCk8u1iFjXr5JiMYnvfhbEtM5SD2YlnZovPlYVsNz1lAfHKE6IbJQ3zcfhm2DNqPpq7oSUI0WW5DmdcAoeQVnyO5N3LqLakiiLy4tDHy3GyT rafae@rafa"
 }
