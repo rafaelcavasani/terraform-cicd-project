@@ -14,8 +14,7 @@ resource "aws_instance" "ec2_rancher" {
     volume_size = 40
     volume_type = "standard"
   }
-  key_name = "tf-key-pair"
-
+  
   tags = {
     Name = "rancher-server"
   }
@@ -36,7 +35,6 @@ resource "aws_instance" "ec2_k8s_instance" {
     volume_size = 30
     volume_type = "standard"
   }
-  key_name = "tf-key-pair"
 
   tags = {
     Name = "rancher-k8s-${count.index}"
